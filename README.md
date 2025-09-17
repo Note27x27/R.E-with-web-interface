@@ -1,9 +1,9 @@
 # R.E-with-web-interface
 
 ## 📌 Overview
-This project is a lightweight **AI-powered recommendation engine** designed for the **PM Internship Scheme**. It helps candidates, including those from rural and underrepresented backgrounds, find the most **relevant internships** based on their **education, skills, interests, and location preferences**.  
+This project is a lightweight **AI-powered recommendation engine**. It helps candidates, including those from rural and underrepresented backgrounds, find the most **relevant internships/jobs** based on their **education, skills, interests, and location preferences**.  
 
-The system provides **3–5 personalized suggestions** in a simple, user-friendly interface. It is **mobile-compatible**, **language-adaptable**, and **lightweight enough** for integration with the official PM Internship portal.
+The system provides **personalized suggestions** in a simple, user-friendly interface. It is **mobile-compatible**, **language-adaptable**, and **lightweight enough**.
 
 ---
 
@@ -50,4 +50,4 @@ A functional prototype that:
 - **Backend:** Python (Flask / FastAPI) or Node.js (Express)  
 - **ML Component:** Scikit-learn / Simple Rule-based Filtering  
 - **Frontend:** HTML, CSS, JavaScript (Mobile-first design)  
-- **Database (Optional):** SQLite / JSON for prototype storage
+- **Database:** SQLite / JSON for prototype storage
