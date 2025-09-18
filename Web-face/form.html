@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f9ff 0%, #e6f0ff 100%);
+            color: #2d3748;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(120deg, #2563eb 0%, #3b82f6 100%);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-weight: 600;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        header p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+        
+        .form-container {
+            padding: 30px;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.2rem;
+            color: #2563eb;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e6f0ff;
+            font-weight: 600;
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px 15px;
+        }
+        
+        .form-group {
+            flex: 1 0 300px;
+            padding: 0 10px;
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #4a5568;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+            background: white;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+        
+        .skill-option {
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-option input {
+            width: auto;
+            margin-right: 8px;
+        }
+        
+        .upload-area {
+            border: 2px dashed #cbd5e0;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+            cursor: pointer;
+        }
+        
+        .upload-area:hover {
+            border-color: #3b82f6;
+            background: #f0f7ff;
+        }
+        
+        .upload-area i {
+            font-size: 40px;
+            color: #3b82f6;
+            margin-bottom: 15px;
+        }
+        
+        .upload-area h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+        
+        .upload-area p {
+            color: #718096;
+            margin-bottom: 15px;
+        }
+        
+        .browse-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3b82f6;
+            color: white;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .browse-btn:hover {
+            background: #2563eb;
+        }
+        
+        .file-info {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #edf7ff;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .file-info.show {
+            display: flex;
+        }
+        
+        .file-info i {
+            color: #3b82f6;
+            font-size: 24px;
+        }
+        
+        .file-details {
+            flex-grow: 1;
+            padding: 0 15px;
+        }
+        
+        .file-name {
+            font-weight: 500;
+        }
+        
+        .file-size {
+            color: #718096;
+            font-size: 14px;
+        }
+        
+        .remove-btn {
+            color: #718096;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .remove-btn:hover {
+            color: #e53e3e;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(120deg, #2563eb 0%, #3b82f6 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+        }
+        
+        .helper-text {
+            text-align: center;
+            margin-top: 25px;
+            color: #718096;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 20px;
+            }
+            
+            header {
+                padding: 20px;
+            }
+            
+            .upload-area {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Internship Application</h1>
+            <p>Take the first step towards your career journey</p>
+        </header>
+        
+        <div class="form-container">
+            <div class="form-section">
+                <h2 class="section-title">Personal Information</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="education">Education Level</label>
+                        <select id="education" required>
+                            <option value="" disabled selected>Select your education level</option>
+                            <option value="highschool">High School</option>
+                            <option value="associate">Associate Degree</option>
+                            <option value="bachelor">Bachelor's Degree</option>
+                            <option value="master">Master's Degree</option>
+                            <option value="phd">PhD</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Skills</label>
+                    <div class="skills-container">
+                        <div class="skill-option">
+                            <input type="checkbox" id="html">
+                            <label for="html">HTML</label>
+                        </div>
+                        <div class="skill-option">
+                            <input type="checkbox" id="css">
+                            <label for="css">CSS</label>
+                        </div>
+                        <div class="skill-option">
+                            <input type="checkbox" id="js">
+                            <label for="js">JavaScript</label>
+                        </div>
+                        <div class="skill-option">
+                            <input type="checkbox" id="python">
+                            <label for="python">Python</label>
+                        </div>
+                        <div class="skill-option">
+                            <input type="checkbox" id="react">
+                            <label for="react">React</label>
+                        </div>
+                        <div class="skill-option">
+                            <input type="checkbox" id="node">
+                            <label for="node">Node.js</label>
+                        </div>
+                        <div class="skill-option">
+                            <input type="checkbox" id="uiux">
+                            <label for="uiux">UI/UX Design</label>
+                        </div>
+                        <div class="skill-option">
+                            <input type="checkbox" id="content">
+                            <label for="content">Content Writing</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="location">Preferred Location</label>
+                        <select id="location" required>
+                            <option value="" disabled selected>Select preferred location</option>
+                            <option value="remote">Remote</option>
+                            <option value="ny">New York</option>
+                            <option value="sf">San Francisco</option>
+                            <option value="la">Los Angeles</option>
+                            <option value="chicago">Chicago</option>
+                            <option value="austin">Austin</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sector">Area of Interest / Sector</label>
+                        <select id="sector" required>
+                            <option value="" disabled selected>Select your area of interest</option>
+                            <option value="development">Software Development</option>
+                            <option value="design">UI/UX Design</option>
+                            <option value="marketing">Digital Marketing</option>
+                            <option value="data">Data Science</option>
+                            <option value="finance">Finance</option>
+                            <option value="hr">Human Resources</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2 class="section-title">Resume Upload</h2>
+                
+                <div class="upload-area" id="dropZone">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Upload Your Resume</h3>
+                    <p>PDF only (Max. 5MB)</p>
+                    <div class="browse-btn">Browse Files</div>
+                    <input type="file" id="resume" accept=".pdf" style="display: none;">
+                </div>
+                
+                <div class="file-info" id="fileInfo">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="file-details">
+                        <div class="file-name" id="fileName">resume.pdf</div>
+                        <div class="file-size" id="fileSize">2.4 MB</div>
+                    </div>
+                    <button class="remove-btn" id="removeFile">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <button class="submit-btn">Get My Recommendations</button>
+            
+            <p class="helper-text">Your information will be used only to recommend internships.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropZone = document.getElementById('dropZone');
+            const fileInput = document.getElementById('resume');
+            const fileInfo = document.getElementById('fileInfo');
+            const fileName = document.getElementById('fileName');
+            const fileSize = document.getElementById('fileSize');
+            const removeBtn = document.getElementById('removeFile');
+            
+            dropZone.addEventListener('click', function() {
+                fileInput.click();
+            });
+            
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, preventDefaults, false);
+            });
+            
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropZone.addEventListener(eventName, highlight, false);
+            });
+            
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, unhighlight, false);
+            });
+            
+            function highlight() {
+                dropZone.style.borderColor = '#3b82f6';
+                dropZone.style.background = '#e6f0ff';
+            }
+            
+            function unhighlight() {
+                dropZone.style.borderColor = '#cbd5e0';
+                dropZone.style.background = '#f8fafc';
+            }
+            
+            dropZone.addEventListener('drop', handleDrop, false);
+            
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                
+                if (files.length) {
+                    handleFiles(files[0]);
+                }
+            }
+            
+            fileInput.addEventListener('change', function() {
+                if (fileInput.files.length) {
+                    handleFiles(fileInput.files[0]);
+                }
+            });
+            
+            function handleFiles(file) {
+                if (file.type !== 'application/pdf') {
+                    alert('Please upload a PDF file only.');
+                    return;
+                }
+                
+                const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1);
+                
+                if (fileSizeMB > 5) {
+                    alert('File size exceeds 5MB. Please upload a smaller file.');
+                    return;
+                }
+                
+                fileName.textContent = file.name;
+                fileSize.textContent = `${fileSizeMB} MB`;
+                fileInfo.classList.add('show');
+            }
+            
+            removeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                fileInput.value = '';
+                fileInfo.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>

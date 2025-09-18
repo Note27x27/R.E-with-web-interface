@@ -1,0 +1,349 @@
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(206, 204, 204);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9597a0d9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #575858;
+}
+
+
+
+
+
+/*location css  */
+
+
+.location-chip {
+  display: inline-flex;
+  align-items: center;
+  background-color: #2563eb;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s, box-shadow 0.2s, opacity 0.3s;
+  opacity: 1;
+}
+
+.location-chip:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.location-chip button {
+  margin-left: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.8);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.location-chip button:hover {
+  color: #fca5a5;
+}
+
+
+
+
+
+
+
+
+
+/* below latest jobs */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.search-bar button {
+  padding: 10px 15px;
+  border: none;
+  background: #4b6bfb;
+  color: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+#suggestions {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  display: none;
+  max-width: 100%;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+
+.suggestion {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.suggestion:hover {
+  background: #2b2bff;
+  color: white;
+}
+
+#tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: #2b2bff;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.tag span {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Styles the dropdown box */
+
+
+#location-results {
+  max-height: 360px;
+  width: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  z-index: 1000;
+  padding: 4px 0;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.2s ease;
+}
+
+#location-results li {
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  border-radius: 8px;
+  list-style: none;
+}
+
+#location-results li:hover {
+  background-color: #f0f4f8;
+  color: #1e3a8a;
+}
+
+#location-results::-webkit-scrollbar {
+  width: 8px;
+}
+
+#location-results::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 8px;
+}
+
+#location-results::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 8px;
+}
+
+#location-results::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Company marquees here */
+
+.marquee-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.marquee-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  height: 100px;
+}
+
+/* Softer, subtle blur fade */
+.marquee-container::before,
+.marquee-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6%; /* smaller fade zone */
+  pointer-events: none;
+  z-index: 10;
+
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
+  mask-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+.marquee-container::before {
+  left: 0;
+  mask-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+.marquee-container::after {
+  right: 0;
+  mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+
+.slider {
+  width: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide-track {
+    display: flex;
+    animation: scroll 60s linear infinite;
+    width: max-content; /* put width: calc(200px * 8);  if it needs to get scalled down */
+}
+
+.slide {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide img {
+  width: 70%;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-200px * 4));
+  }
+}
+
+@media (max-width: 767px) {
+  .slide img {
+    width: 70%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Find best internships button */
+
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.blue-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #4b6bfb, #3b57e3); 
+  color: white;
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(75, 107, 251, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.blue-button .icon {
+  width: 22px;
+  height: 22px;
+}
+
+.blue-button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #4f67e6, #4055d9); 
+  box-shadow: 0 6px 16px rgba(75, 107, 251, 0.55); 
+  border-color: #f0f0f0;
+  color: #ffffff;
+}
+
+.blue-button:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
