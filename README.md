@@ -47,7 +47,7 @@ A functional prototype that:
 ---
 
 ## 💻 Tech Stack
-- **Backend:** Python (Flask / FastAPI) or Node.js (Express)  
+- **Backend:** Python (Flask / FastAPI)  
 - **ML Component:** Scikit-learn / Simple Rule-based Filtering  
 - **Frontend:** HTML, CSS, JavaScript (Mobile-first design)  
 - **Database:** SQLite / JSON for prototype storage
